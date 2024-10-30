@@ -37,7 +37,7 @@ class Character {
   }
 
   dynamic getProperty(String property) {
-    return properties[property]; // Return the property value
+    return properties[property];
   }
 
   void setProperty(String property, dynamic value) {

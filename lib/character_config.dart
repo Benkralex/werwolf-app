@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:werwolfapp/game/game.dart';
 import 'package:werwolfapp/game/role.dart';
+import 'package:werwolfapp/game/role_repository.dart';
 import 'package:werwolfapp/game_screens/game_overview.dart';
 
 Map<Role, Map<String, dynamic>> _characterProperties = {
-  for (var role in Role.roles) role: role.properties
+  for (var role in RoleRepository.roles) role: role.properties
 };
 
 class CharacterConfig extends StatelessWidget {
   void propertiesDialog(int id, BuildContext context) {
     // Hole die aktuellsten Eigenschaften jedes Mal, wenn der Dialog geöffnet wird
-    final role = Role.getRole(id);
+    final role = RoleRepository.getRole(id);
     final Map<String, dynamic> roleProperties =
         _characterProperties[role] ?? {};
     List<Widget> properties = [];

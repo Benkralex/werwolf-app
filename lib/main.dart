@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:werwolfapp/character_input.dart';
-import 'package:werwolfapp/game/role.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:werwolfapp/game/role_repository.dart';
 
 Color primaryColor = Colors.indigo;
 Color menuIconsColor = Colors.white;
@@ -21,8 +21,8 @@ Future<void> loadRoles() async {
   final List<dynamic> jsonList = json.decode(jsonString);
   final List<Map<String, dynamic>> mappedJsonList =
       jsonList.cast<Map<String, dynamic>>();
-  Role.roles = Role.loadJsonList(mappedJsonList);
-  Role.roles.sort((a, b) => a.priority.compareTo(b.priority));
+  RoleRepository.roles = RoleRepository.loadJsonList(mappedJsonList);
+  RoleRepository.roles.sort((a, b) => a.priority.compareTo(b.priority));
 }
 
 class MyApp extends StatelessWidget {

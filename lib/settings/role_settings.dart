@@ -1,5 +1,5 @@
-import 'package:werwolfapp/game/role.dart';
 import 'package:flutter/material.dart';
+import 'package:werwolfapp/game/role_repository.dart';
 import 'package:werwolfapp/main.dart';
 
 class RoleSettingsScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class RoleSettingsScreen extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
-        itemCount: Role.roles.length,
+        itemCount: RoleRepository.roles.length,
         itemBuilder: (context, index) {
           return Padding(
             padding:
@@ -27,7 +27,7 @@ class RoleSettingsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start, // Links bündig
               children: [
                 Text(
-                  Role.roles[index].name,
+                  RoleRepository.roles[index].name,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -36,7 +36,7 @@ class RoleSettingsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 6), // Abstand zwischen den Texten
                 Text(
-                  Role.roles[index].desc,
+                  RoleRepository.roles[index].desc,
                   style: const TextStyle(
                     fontSize: 16,
                     color: Color.fromRGBO(255, 255, 255, 1),

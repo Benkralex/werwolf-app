@@ -3,6 +3,7 @@ import 'package:werwolfapp/character_config.dart';
 import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/game.dart';
 import 'package:werwolfapp/game/role.dart';
+import 'package:werwolfapp/game/role_repository.dart';
 import 'package:werwolfapp/main.dart';
 import 'package:werwolfapp/menu.dart';
 
@@ -24,8 +25,8 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
       builder: (BuildContext context) {
         return Column(
           mainAxisSize: MainAxisSize.min,
-          children: (Role.roles.isNotEmpty)
-              ? Role.roles.map((Role role) {
+          children: (RoleRepository.roles.isNotEmpty)
+              ? RoleRepository.roles.map((Role role) {
                   if (characters
                       .where((element) => element.role.name == role.name)
                       .isEmpty) {
@@ -105,7 +106,7 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
                 IconButton(
                   onPressed: () {
                     setState(() {
-                      Role role = Role.roles
+                      Role role = RoleRepository.roles
                           .firstWhere((element) => element.name == entry.key);
                       characters.add(Character(role: role));
                       charactersCount = characters.length;
