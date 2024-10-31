@@ -159,8 +159,8 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
             );
             return;
           }
-          Game.game.playerCount = characters.length;
-          Game.game.characters = characters;
+          Game.instance.playerCount = characters.length;
+          Game.instance.characters = characters;
           Navigator.push(
             context,
             PageRouteBuilder(

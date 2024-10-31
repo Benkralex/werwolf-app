@@ -1,0 +1,49 @@
+{
+  "onNightAction": {
+    "condition": {
+      "if": {
+        "property": "count-healing-potions",
+        "value": {
+          "operator": ">",
+          "operand": 0
+        }
+      },
+      "then": {
+        "action": "healCharacter",
+        "required": false,
+        "count": 1,
+        "target": "select",
+        "after": {
+          "changeProperty": {
+            "property": "count-healing-potions",
+            "value": -1
+          }
+        }
+      },
+      "else": {
+        "condition": {
+          "if": {
+            "property": "count-death-potions",
+            "value": {
+              "operator": ">",
+              "operand": 0
+            }
+          },
+          "then": {
+            "action": "killCharacter",
+            "required": false,
+            "count": 1,
+            "target": "select",
+            "after": {
+              "changeProperty": {
+                "property": "count-death-potions",
+                "value": -1
+              }
+            }
+          },
+          "else": {}
+        }
+      }
+    }
+  }
+}

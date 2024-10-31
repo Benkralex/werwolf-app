@@ -3,6 +3,7 @@ class Role {
   String name;
   String desc;
   int priority;
+  bool wakeUpTogether;
   Map<String, dynamic> properties = {};
 
   Role(
@@ -10,6 +11,7 @@ class Role {
       required this.name,
       required this.desc,
       required this.priority,
+      required this.wakeUpTogether,
       required this.properties})
       : _id = id;
 
@@ -19,6 +21,7 @@ class Role {
       name: json['name'],
       desc: json['desc'],
       priority: json['priority'],
+      wakeUpTogether: json['wake-up-together'],
       properties: json['properties'],
     );
   }

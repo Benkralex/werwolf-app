@@ -12,37 +12,43 @@ class NightWidget extends StatefulWidget {
 class _NightWidgetState extends State<NightWidget> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () => {
-                  setState(() {
-                    Game.game.previous();
-                    widget.update();
-                  })
-                },
-                child: const Text('Prev'),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.2,
-              ),
-              ElevatedButton(
-                onPressed: () => {
-                  setState(() {
-                    Game.game.next();
-                    widget.update();
-                  })
-                },
-                child: const Text('Next'),
-              ),
-            ],
-          ),
-        ],
+    return Scaffold(
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            // Your other widgets can go here
+          ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () => {
+                setState(() {
+                  Game.instance.previous();
+                  widget.update();
+                })
+              },
+              child: const Text('Prev'),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            ElevatedButton(
+              onPressed: () => {
+                setState(() {
+                  Game.instance.next();
+                  widget.update();
+                })
+              },
+              child: const Text('Next'),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -24,9 +24,9 @@ class _DayWidgetState extends State<DayWidget> {
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: ListView.builder(
-              itemCount: Game.game.getAliveCharacters().length,
+              itemCount: Game.instance.getAliveCharacters().length,
               itemBuilder: (context, index) {
-                final character = Game.game.getAliveCharacters()[index];
+                final character = Game.instance.getAliveCharacters()[index];
                 final isSelected = selectedCharacter == character;
                 return ListTile(
                   title: Text(character.role.name),
@@ -66,7 +66,7 @@ class _DayWidgetState extends State<DayWidget> {
               if (selectedCharacter != null) {
                 setState(() {
                   selectedCharacter!.kill();
-                  Game.game.setNight();
+                  Game.instance.setNight();
                   widget.update();
                 });
               }

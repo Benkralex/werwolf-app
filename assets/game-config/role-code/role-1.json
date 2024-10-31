@@ -1,0 +1,20 @@
+{
+  "onNightAction": {
+    "condition": {
+      "if": {
+        "property": "can-see-full-role",
+        "value": true
+      },
+      "then": {
+        "action": "seeRole",
+        "count": 1,
+        "target": "select"
+      },
+      "else": {
+        "action": "seeBadOrGood",
+        "count": 1,
+        "target": "select"
+      }
+    }
+  }
+}

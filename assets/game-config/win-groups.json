@@ -1,0 +1,14 @@
+{
+  "villager": {
+    "name": "Dorfbewohner",
+    "win-condition": "kill-all-enemies",
+    "win-condition-string": "Gewinnen, wenn alle anderen Gruppen ausgelöscht sind",
+    "roles": [1, 2, 3]
+  },
+  "werewolf": {
+    "name": "Werwölfe",
+    "win-condition": "be-half-of-all-players",
+    "win-condition-string": "Gewinnen, wenn sie mindestens die Hälfte aller Spieler sind",
+    "roles": [0]
+  }
+}

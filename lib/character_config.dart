@@ -41,7 +41,7 @@ class CharacterConfig extends StatelessWidget {
                       switchValue = newValue;
                       // Aktualisiere die Eigenschaft in _characterProperties direkt
                       _characterProperties[role]![p] = newValue;
-                      Game.game.configAllCharacters(role, p, newValue);
+                      Game.instance.configAllCharacters(role, p, newValue);
                     });
                   },
                 ),
@@ -59,7 +59,7 @@ class CharacterConfig extends StatelessWidget {
           onChanged: (newValue) {
             final parsedValue = int.tryParse(newValue) ?? value;
             _characterProperties[role]![p] = parsedValue;
-            Game.game.configAllCharacters(role, p, parsedValue);
+            Game.instance.configAllCharacters(role, p, parsedValue);
           },
         );
       } else {
@@ -69,7 +69,7 @@ class CharacterConfig extends StatelessWidget {
           controller: controller,
           onChanged: (newValue) {
             _characterProperties[role]![p] = newValue;
-            Game.game.configAllCharacters(role, p, newValue);
+            Game.instance.configAllCharacters(role, p, newValue);
           },
         );
       }
@@ -105,7 +105,7 @@ class CharacterConfig extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final roles = Game.game.listUsedRoles().map<Widget>((role) {
+    final roles = Game.instance.listUsedRoles().map<Widget>((role) {
       return GestureDetector(
         onTap: () {
           propertiesDialog(role.id, context);
@@ -136,7 +136,7 @@ class CharacterConfig extends StatelessWidget {
         onPressed: () {
           _characterProperties.forEach((role, properties) {
             properties.forEach((property, value) {
-              Game.game.configAllCharacters(role, property, value);
+              Game.instance.configAllCharacters(role, property, value);
             });
           });
           Navigator.pushReplacement(
@@ -148,7 +148,7 @@ class CharacterConfig extends StatelessWidget {
               reverseTransitionDuration: Duration.zero,
             ),
           );
-          Game.game.next();
+          Game.instance.next();
         },
         child: const Icon(Icons.arrow_forward),
       ),

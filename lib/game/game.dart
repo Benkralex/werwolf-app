@@ -2,42 +2,41 @@ import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/role.dart';
 
 class Game {
-  static Game game = Game();
+  static final Game instance = Game();
 
   int playerCount = 0;
   List<Character> characters = [];
   bool night = true;
+  Role? activeRole;
+  List<Role> rolesByPriority = [];
+  List<Character> activeCharacters = [];
   Character? activeCharacter;
-  List<Character> charactersByPriority = [];
-  int counter = 0;
+  int roleCounter = 0;
+  int characterCounter = 0;
+  bool gameOver = false;
 
   Game();
 
   void toggleNight() {
+    if (isGameOver()) return;
     night ? setDay() : setNight();
   }
 
   void setNight() {
+    if (isGameOver()) return;
     night = true;
-    activeCharacter = null;
+    activeRole = null;
     next();
   }
 
   void setDay() {
     night = false;
-    activeCharacter = null;
-  }
-
-  void addCharacter(Character character) {
-    characters.add(character);
-  }
-
-  void removeCharacter(Character character) {
-    characters.remove(character);
+    isGameOver();
+    activeRole = null;
   }
 
   void configAllCharacters(Role role, String property, dynamic value) {
-    for (final c in game.characters) {
+    for (final c in characters) {
       if (c.role.id == role.id) {
         c.setProperty(property, value);
       }
@@ -45,8 +44,8 @@ class Game {
   }
 
   List<Role> listUsedRoles() {
-    List<Role> roles = [];
-    for (final c in game.characters) {
+    final roles = <Role>[];
+    for (final c in characters) {
       if (!roles.contains(c.role)) {
         roles.add(c.role);
       }
@@ -55,17 +54,16 @@ class Game {
   }
 
   Map<String, dynamic> getProperties(Role role) {
-    Map<String, dynamic> properties = role.properties;
     for (final c in characters) {
       if (c.role.id == role.id) {
-        properties = c.role.properties;
+        return c.role.properties;
       }
     }
-    return properties;
+    return role.properties;
   }
 
   Character? getCharacter(int id) {
-    for (final c in game.characters) {
+    for (final c in characters) {
       if (c.id == id) {
         return c;
       }
@@ -74,43 +72,96 @@ class Game {
   }
 
   List<Character> getAliveCharacters() {
-    List<Character> aliveCharacters = [];
-    for (final c in game.characters) {
-      if (c.alive) {
-        aliveCharacters.add(c);
+    return characters.where((c) => c.alive).toList();
+  }
+
+  List<Role> getAliveRoles() {
+    final roles = <Role>[];
+    for (final c in characters) {
+      if (c.alive && !roles.contains(c.role)) {
+        roles.add(c.role);
       }
     }
-    return aliveCharacters;
+    return roles;
   }
 
   List<Character> getCharactersByPriority(int priority) {
-    List<Character> charactersByPriority = [];
-    for (final c in game.characters) {
-      if (c.role.priority == priority) {
-        charactersByPriority.add(c);
-      }
-    }
-    return charactersByPriority;
+    return characters.where((c) => c.role.priority == priority).toList();
   }
 
   void next() {
-    charactersByPriority = List<Character>.from(getAliveCharacters());
-    charactersByPriority.sort((a, b) => a.role.id.compareTo(b.role.id));
-    charactersByPriority
-        .sort((a, b) => a.role.priority.compareTo(b.role.priority));
-    if (!night) activeCharacter = null;
-    counter++;
-    if (counter >= charactersByPriority.length) {
-      setDay();
-      activeCharacter = null;
+    if (isGameOver()) return;
+    rolesByPriority = getAliveRoles()
+      ..sort((a, b) {
+        final priorityComparison = a.priority.compareTo(b.priority);
+        return priorityComparison != 0
+            ? priorityComparison
+            : a.id.compareTo(b.id);
+      });
+    rolesByPriority.removeWhere((r) => r.priority == 0);
+    if (!night) activeRole = null;
+    if (night) {
+      if (activeRole == null) {
+        roleCounter = 0;
+        characterCounter = 0;
+        activeRole = rolesByPriority[roleCounter];
+        activeCharacters = getCharactersByPriority(activeRole!.priority);
+        activeCharacters.removeWhere((c) => !c.alive);
+        activeCharacter = activeCharacters[characterCounter];
+      } else if ((activeCharacters.length <= characterCounter + 1) ||
+          (activeRole!.wakeUpTogether)) {
+        characterCounter = 0;
+        roleCounter++;
+        if (rolesByPriority.length <= roleCounter) {
+          setDay();
+        } else {
+          activeRole = rolesByPriority[roleCounter];
+          activeCharacters = getCharactersByPriority(activeRole!.priority);
+          activeCharacters.removeWhere((c) => !c.alive);
+          activeCharacter = activeCharacters[characterCounter];
+        }
+      } else {
+        characterCounter++;
+        activeCharacter = activeCharacters[characterCounter];
+      }
     }
-    activeCharacter = charactersByPriority[counter];
   }
 
   void previous() {
-    if (counter > 0) {
-      counter--;
-      activeCharacter = charactersByPriority[counter];
+    if (isGameOver()) return;
+    if (night) {
+      if (activeRole == null) {
+        roleCounter = rolesByPriority.length - 1;
+        characterCounter =
+            getCharactersByPriority(rolesByPriority[roleCounter].priority)
+                    .length -
+                1;
+        activeRole = rolesByPriority[roleCounter];
+        activeCharacters = getCharactersByPriority(activeRole!.priority);
+        activeCharacters.removeWhere((c) => !c.alive);
+        activeCharacter = activeCharacters[characterCounter];
+      } else if (characterCounter == 0) {
+        roleCounter--;
+        if (roleCounter < 0) {
+          activeRole = null;
+        } else {
+          activeRole = rolesByPriority[roleCounter];
+          activeCharacters = getCharactersByPriority(activeRole!.priority);
+          activeCharacters.removeWhere((c) => !c.alive);
+          characterCounter = activeCharacters.length - 1;
+          activeCharacter = activeCharacters[characterCounter];
+        }
+      } else {
+        characterCounter--;
+        activeCharacter = activeCharacters[characterCounter];
+      }
     }
+  }
+
+  bool isGameOver() {
+    if (getAliveRoles().length <= 1) {
+      gameOver = true;
+    }
+    return gameOver;
   }
 }

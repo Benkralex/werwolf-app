@@ -151,7 +151,7 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
 
   List<Widget> getPlayers() {
     List<Widget> players = [];
-    List<Character> characters = Game.game.characters;
+    List<Character> characters = Game.instance.characters;
 
     characters.sort((a, b) => a.role.priority.compareTo(b.role.priority));
     characters.sort((a, b) => (b.alive ? 1 : 0) - (a.alive ? 1 : 0));

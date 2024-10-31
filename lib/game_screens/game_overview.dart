@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/game.dart';
 import 'package:werwolfapp/game/role.dart';
 import 'package:werwolfapp/game_screens/day.dart';
@@ -28,10 +27,10 @@ class _GameOverviewScreenState extends State<GameOverviewScreen> {
           IconButton(
             onPressed: () {
               setState(() {
-                Game.game.toggleNight();
+                Game.instance.toggleNight();
               });
             },
-            icon: (Game.game.night)
+            icon: (Game.instance.night)
                 ? const Icon(Icons.light_mode)
                 : const Icon(Icons.dark_mode),
             color: menuIconsColor,
@@ -62,27 +61,27 @@ class _GameOverviewScreenState extends State<GameOverviewScreen> {
             child: Column(
               children: [
                 Text(
-                  Game.game.night ? 'Nacht' : 'Tag',
+                  Game.instance.night ? 'Nacht' : 'Tag',
                   style: const TextStyle(fontSize: 30),
                 ),
                 Text(
-                  Game.game.night
-                      ? (Game.game.activeCharacter ??
-                              Character(
-                                  role: Role(
-                                      id: -11,
-                                      name: "Error",
-                                      desc: "Error",
-                                      priority: 0,
-                                      properties: {})))
-                          .role
+                  Game.instance.night
+                      ? (Game.instance.activeRole ??
+                              Role(
+                                id: -11,
+                                name: "Error",
+                                desc: "Error",
+                                priority: 0,
+                                wakeUpTogether: false,
+                                properties: {},
+                              ))
                           .name
                       : 'Lasse das Dorf einen Spieler lynchen',
                 )
               ],
             ),
           ),
-          if (!Game.game.night)
+          if (!Game.instance.night)
             Expanded(child: DayWidget(update: update))
           else
             Expanded(child: NightWidget(update: update)),
