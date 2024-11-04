@@ -1,4 +1,4 @@
-# myapp
+# werwolfapp
 
 A new Flutter project.
 

@@ -5,7 +5,8 @@
     "desc": "Wacht in jeder Nacht zusammen mit den anderen Werwölfen auf und wählt 1 Opfer aus, das ihr töten wollt",
     "priority": 2,
     "wake-up-together": true,
-    "properties": {}
+    "win-group": 1,
+    "onNightAction": "werewolf"
   },
   {
     "id": 1,
@@ -13,35 +14,39 @@
     "desc": "Wählt jede Nacht einen Spieler, bei dem er die Rolle erfahren möchte",
     "priority": 1,
     "wake-up-together": false,
+    "win-group": 0,
     "properties": {
       "can-see-full-role": false
-    }
+    },
+    "onNightAction": "seer"
   },
   {
     "id": 2,
     "name": "Dorfbewohner",
     "desc": "Sucht die Werwölfe und probiert diese zu lynchen",
-    "priority": 0,
-    "wake-up-together": false,
-    "properties": {}
+    "win-group": 0
   },
   {
     "id": 3,
     "name": "Hexe",
     "desc": "Kann jede Nacht entscheiden, ob sie das/die Opfer rettet oder noch jemanden umbringt",
     "priority": 3,
+    "win-group": 0,
     "wake-up-together": false,
     "properties": {
       "count-healing-potions": 1,
       "count-death-potions": 1
-    }
+    },
+    "onNightAction": "witch"
   },
   {
     "id": 4,
     "name": "Jäger",
     "desc": "Kann, wenn er stirbt, noch jemanden umbringen",
     "priority": 0,
+    "win-group": 3,
     "wake-up-together": false,
-    "properties": {}
+    "properties": {},
+    "onDeathAction": "hunter"
   }
 ]

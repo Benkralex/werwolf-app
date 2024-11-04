@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:werwolfapp/game/game.dart';
-import 'package:werwolfapp/game/role.dart';
 import 'package:werwolfapp/game_screens/day.dart';
 import 'package:werwolfapp/game_screens/night.dart';
 import 'package:werwolfapp/game_screens/player_overview.dart';
@@ -66,16 +65,7 @@ class _GameOverviewScreenState extends State<GameOverviewScreen> {
                 ),
                 Text(
                   Game.instance.night
-                      ? (Game.instance.activeRole ??
-                              Role(
-                                id: -11,
-                                name: "Error",
-                                desc: "Error",
-                                priority: 0,
-                                wakeUpTogether: false,
-                                properties: {},
-                              ))
-                          .name
+                      ? Game.instance.activeRole!.name
                       : 'Lasse das Dorf einen Spieler lynchen',
                 )
               ],

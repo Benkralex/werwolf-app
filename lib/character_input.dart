@@ -133,7 +133,9 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
           ),
         ],
       ),
-      drawer: const MainMenu(),
+      drawer: const MainMenu(
+        selectedIndex: 0,
+      ),
       body: Center(
         child: Column(
           children: [

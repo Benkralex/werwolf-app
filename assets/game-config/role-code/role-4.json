@@ -1,7 +1,0 @@
-{
-  "onDeathAction": {
-    "action": "kill",
-    "count": 1,
-    "target": "select"
-  }
-}

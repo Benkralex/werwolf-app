@@ -11,7 +11,9 @@ class SettingsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Einstellungen'),
       ),
-      drawer: const MainMenu(),
+      drawer: const MainMenu(
+        selectedIndex: 2,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
