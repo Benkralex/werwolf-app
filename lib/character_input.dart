@@ -22,33 +22,42 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
     final Role? selectedRole = await showModalBottomSheet<Role>(
       showDragHandle: true,
       context: context,
+      isScrollControlled: true,
       builder: (BuildContext context) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: (RoleRepository.roles.isNotEmpty)
-              ? RoleRepository.roles.map((Role role) {
-                  if (characters
-                      .where((element) => element.role.name == role.name)
-                      .isEmpty) {
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ListTile(
-                        title: Text(role.name),
-                        onTap: () {
-                          Navigator.of(context).pop(role);
-                        },
-                      ),
-                    );
-                  } else {
-                    return Container();
-                  }
-                }).toList()
-              : [
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text("Keine Rollen vorhanden"),
-                  ),
-                ],
+        return DraggableScrollableSheet(
+          expand: false,
+          builder: (BuildContext context, ScrollController scrollController) {
+            return SingleChildScrollView(
+              controller: scrollController,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: (RoleRepository.roles.isNotEmpty)
+                    ? RoleRepository.roles.map((Role role) {
+                        if (characters
+                            .where((element) => element.role.name == role.name)
+                            .isEmpty) {
+                          return Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: ListTile(
+                              title: Text(role.name),
+                              onTap: () {
+                                Navigator.of(context).pop(role);
+                              },
+                            ),
+                          );
+                        } else {
+                          return Container();
+                        }
+                      }).toList()
+                    : [
+                        const Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Text("Keine Rollen vorhanden"),
+                        ),
+                      ],
+              ),
+            );
+          },
         );
       },
     );
