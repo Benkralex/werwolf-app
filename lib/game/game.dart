@@ -23,6 +23,7 @@ class Game {
   }
 
   void setNight() {
+    gameOver = gameOver || hasWon();
     if (isGameOver()) return;
     night = true;
     activeRole = null;
@@ -30,8 +31,9 @@ class Game {
   }
 
   void setDay() {
+    gameOver = gameOver || hasWon();
+    if (isGameOver()) return;
     night = false;
-    isGameOver();
     activeRole = null;
   }
 
@@ -159,8 +161,17 @@ class Game {
   }
 
   bool isGameOver() {
-    if (getAliveRoles().length <= 1) {
-      gameOver = true;
+    gameOver = (getAliveRoles().length <= 1);
+    return gameOver;
+  }
+
+  bool hasWon() {
+    for (final c in characters) {
+      if (c.hasWon()) {
+        // ignore: avoid_print
+        print('${c.role.name} (${c.playerName}) has won');
+        gameOver = true;
+      }
     }
     return gameOver;
   }

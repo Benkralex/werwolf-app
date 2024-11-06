@@ -5,7 +5,7 @@
     "desc": "Wacht in jeder Nacht zusammen mit den anderen Werwölfen auf und wählt 1 Opfer aus, das ihr töten wollt",
     "priority": 2,
     "wake-up-together": true,
-    "win-group": 1,
+    "win-condition": 1,
     "onNightAction": "werewolf"
   },
   {
@@ -14,39 +14,91 @@
     "desc": "Wählt jede Nacht einen Spieler, bei dem er die Rolle erfahren möchte",
     "priority": 1,
     "wake-up-together": false,
-    "win-group": 0,
+    "win-condition": 0,
     "properties": {
       "can-see-full-role": false
     },
-    "onNightAction": "seer"
+    "onNightAction": "seer",
+    "max-count": 1
   },
   {
     "id": 2,
     "name": "Dorfbewohner",
     "desc": "Sucht die Werwölfe und probiert diese zu lynchen",
-    "win-group": 0
+    "win-condition": 0
   },
   {
     "id": 3,
     "name": "Hexe",
     "desc": "Kann jede Nacht entscheiden, ob sie das/die Opfer rettet oder noch jemanden umbringt",
     "priority": 3,
-    "win-group": 0,
+    "win-condition": 0,
     "wake-up-together": false,
     "properties": {
       "count-healing-potions": 1,
       "count-death-potions": 1
     },
-    "onNightAction": "witch"
+    "onNightAction": "witch",
+    "max-count": 1
   },
   {
     "id": 4,
     "name": "Jäger",
     "desc": "Kann, wenn er stirbt, noch jemanden umbringen",
     "priority": 0,
-    "win-group": 3,
+    "win-condition": 0,
     "wake-up-together": false,
     "properties": {},
     "onDeathAction": "hunter"
+  },
+  {
+    "id": 5,
+    "name": "Vampier",
+    "desc": "Wacht in jeder Nacht zusammen mit den anderen Vampiren auf und wählt 1 Opfer aus, das ihr töten wollt",
+    "priority": 2,
+    "win-condition": 5,
+    "wake-up-together": true,
+    "onNightAction": "vampire"
+  },
+  {
+    "id": 6,
+    "name": "Amor",
+    "desc": "Kann in der ersten Nacht zwei Spieler verlieben",
+    "priority": 1,
+    "win-condition": 0,
+    "wake-up-together": false,
+    "properties": {
+      "only-first-night": true,
+      "nights-in-between": 0
+    },
+    "onNightAction": "armor",
+    "max-count": 1
+  },
+  {
+    "id": 7,
+    "name": "Seherin",
+    "desc": "Wählt jede Nacht einen Spieler, bei dem sie die Rolle erfahren möchte",
+    "priority": 1,
+    "wake-up-together": false,
+    "win-condition": 0,
+    "properties": {
+      "can-see-full-role": false
+    },
+    "onNightAction": "seer",
+    "max-count": 1
+  },
+  {
+    "id": 8,
+    "name": "Magier",
+    "desc": "Kann jede Nacht entscheiden, ob er das/die Opfer rettet oder noch jemanden umbringt",
+    "priority": 3,
+    "win-condition": 0,
+    "wake-up-together": false,
+    "properties": {
+      "count-healing-potions": 1,
+      "count-death-potions": 1
+    },
+    "onNightAction": "witch",
+    "max-count": 1
   }
 ]

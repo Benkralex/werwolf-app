@@ -1,3 +1,6 @@
+// ignore_for_file: avoid_print
+
+import 'package:werwolfapp/game/game.dart';
 import 'package:werwolfapp/game/role.dart';
 
 class Character {
@@ -30,6 +33,34 @@ class Character {
 
   void revive() {
     alive = true;
+  }
+
+  bool hasWon() {
+    List<Character> playersNotInGroup = Game.instance
+        .getAliveCharacters()
+        .where((c) => !(c.role.winCondition.id == role.winCondition.id))
+        .toList();
+    List<Character> playersInGroup = Game.instance
+        .getAliveCharacters()
+        .where((c) => (c.role.winCondition.id == role.winCondition.id))
+        .toList();
+    switch (role.winCondition.winCondition) {
+      case 'kill-all-enemies':
+        return playersNotInGroup.isEmpty;
+      case 'be-half-of-all-players':
+        if (playersInGroup.isEmpty) {
+          return false;
+        }
+        return playersInGroup.length >= playersNotInGroup.length;
+      case 'get-killed':
+        return !alive;
+      case 'survive':
+        return Game.instance.isGameOver() && alive;
+      default:
+        print(
+            "Error: Unknown win condition: ${role.winCondition.winCondition}");
+        return false;
+    }
   }
 
   Map<String, dynamic> getProperties() {

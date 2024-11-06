@@ -64,6 +64,7 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
   Widget build(BuildContext context) {
     Map<String, int> characterCount = {};
 
+    characters.sort((a, b) => a.role.name.compareTo(b.role.name));
     characters.sort((a, b) => a.role.priority.compareTo(b.role.priority));
     for (var character in characters) {
       characterCount[character.role.name] =
@@ -104,16 +105,23 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
                   },
                 ),
                 IconButton(
-                  onPressed: () {
-                    setState(() {
-                      Role role = RoleRepository.roles
-                          .firstWhere((element) => element.name == entry.key);
-                      characters.add(Character(role: role));
-                      charactersCount = characters.length;
-                    });
-                  },
+                  onPressed: (RoleRepository.roles
+                              .firstWhere(
+                                  (element) => element.name == entry.key)
+                              .maxCount >
+                          entry.value)
+                      ? () {
+                          setState(() {
+                            Role role = RoleRepository.roles.firstWhere(
+                                (element) => element.name == entry.key);
+                            characters.add(Character(role: role));
+                            charactersCount = characters.length;
+                          });
+                        }
+                      : null,
                   icon: const Icon(Icons.add),
                   color: primaryIconsColor,
+                  disabledColor: primaryIconsColorDisabled,
                 ),
               ],
             ),

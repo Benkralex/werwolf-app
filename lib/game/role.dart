@@ -1,4 +1,5 @@
-import 'package:werwolfapp/game/win_group.dart';
+import 'package:werwolfapp/game/win_condition.dart';
+import 'package:werwolfapp/game/win_condition_repository.dart';
 
 class Role {
   int _id;
@@ -7,9 +8,10 @@ class Role {
   int priority;
   bool wakeUpTogether;
   Map<String, dynamic> properties = {};
-  WinGroup winGroup;
+  WinCondition winCondition;
   Map<String, dynamic>? onDeathAction;
   Map<String, dynamic>? onNightAction;
+  int maxCount = 40;
 
   Role(
       {required int id,
@@ -18,9 +20,10 @@ class Role {
       required this.priority,
       required this.wakeUpTogether,
       required this.properties,
-      required this.winGroup,
+      required this.winCondition,
       this.onDeathAction,
-      this.onNightAction})
+      this.onNightAction,
+      this.maxCount = 40})
       : _id = id;
 
   factory Role.fromJSON(Map<String, dynamic> json) {
@@ -31,9 +34,11 @@ class Role {
       priority: json['priority'] ?? 0,
       wakeUpTogether: json['wake-up-together'] ?? false,
       properties: json['properties'] ?? {},
-      winGroup: WinGroup.getWinGroup(json['win-group']),
+      winCondition:
+          WinConditionRepository.getWinCondition(json['win-condition']),
       onDeathAction: json['on-death-action'],
       onNightAction: json['on-night-action'],
+      maxCount: json['max-count'] ?? 40,
     );
   }
 
@@ -47,9 +52,10 @@ class Role {
       'priority': priority,
       'wake-up-together': wakeUpTogether,
       'properties': properties,
-      'win-group': winGroup,
+      'win-condition': winCondition.id,
       'on-death-action': onDeathAction,
       'on-night-action': onNightAction,
+      if (maxCount != 40) 'max-count': maxCount,
     };
   }
 }

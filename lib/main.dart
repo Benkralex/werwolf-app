@@ -3,12 +3,14 @@ import 'package:werwolfapp/character_input.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:werwolfapp/game/role_repository.dart';
-import 'package:werwolfapp/game/win_group.dart';
+import 'package:werwolfapp/game/win_condition_repository.dart';
 
 Color primaryColor = Colors.indigo;
 Color menuIconsColor = Colors.white;
 Color primaryIconsColor = Colors.blue[200]!;
 Color secondaryIconsColor = Colors.blue[50]!;
+Color primaryIconsColorDisabled = const Color.fromARGB(161, 108, 151, 187);
+Color secondaryIconsColorDisabled = const Color.fromARGB(162, 166, 178, 185);
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,11 +31,11 @@ Future<void> loadRoles() async {
 
 Future<void> loadWinGroups() async {
   final String jsonString =
-      await rootBundle.loadString('assets/game-config/win-groups.json');
+      await rootBundle.loadString('assets/game-config/win-conditions.json');
   final List<dynamic> jsonList = json.decode(jsonString);
   final List<Map<String, dynamic>> mappedJsonList =
       jsonList.cast<Map<String, dynamic>>();
-  WinGroup.winGroups = WinGroup.loadJsonList(mappedJsonList);
+  WinConditionRepository.loadJsonList(mappedJsonList);
 }
 
 class WerwolfApp extends StatelessWidget {
