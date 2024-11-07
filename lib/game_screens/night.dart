@@ -33,7 +33,7 @@ class _NightWidgetState extends State<NightWidget> {
                   widget.update();
                 })
               },
-              child: const Text('Prev'),
+              child: const Text('Zurück'),
             ),
             const SizedBox(
               width: 20,
@@ -45,7 +45,7 @@ class _NightWidgetState extends State<NightWidget> {
                   widget.update();
                 })
               },
-              child: const Text('Next'),
+              child: const Text('Weiter'),
             ),
           ],
         ),

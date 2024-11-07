@@ -169,11 +169,21 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           if (characters.length < 5 || characters.length > 40) {
-            //show Snackbar
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                content:
-                    Text("Anzahl an Charakteren muss zwischen 5 und 40 sein"),
+                content: Text(
+                  "Anzahl an Charakteren muss zwischen 5 und 40 sein",
+                ),
+              ),
+            );
+            return;
+          }
+          if (characters.every((c) => c.role.priority == 0)) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text(
+                  "Es muss mindestens ein Charakter geben, der Nachts aufwacht",
+                ),
               ),
             );
             return;
