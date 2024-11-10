@@ -142,7 +142,7 @@
   {
     "id": 15,
     "name": "Hexe",
-    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jewails einmal pro Spiel.",
+    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jeweils einmal pro Spiel.",
     "priority": 3,
     "win-condition": 0,
     "properties": {
@@ -155,7 +155,7 @@
   {
     "id": 16,
     "name": "Magier",
-    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jewails einmal pro Spiel.",
+    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jeweils einmal pro Spiel.",
     "priority": 3,
     "win-condition": 0,
     "properties": {
