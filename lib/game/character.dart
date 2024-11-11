@@ -1,5 +1,5 @@
-// ignore_for_file: avoid_print
-
+import 'package:werwolfapp/game/character_action.dart';
+import 'package:werwolfapp/game/character_action_repository.dart';
 import 'package:werwolfapp/game/game.dart';
 import 'package:werwolfapp/game/role.dart';
 
@@ -11,6 +11,7 @@ class Character {
   String? playerName;
   bool alive = true;
   Map<String, dynamic> properties;
+  CharacterAction? action;
 
   Character({required Role role})
       : _role = role,
@@ -18,6 +19,28 @@ class Character {
         id = ++_highestId;
 
   Role get role => _role;
+
+  void onNightAction() {
+    if (action != null) {
+      action!.onNightAction();
+    } else {
+      if (role.onNightAction != null) {
+        action = CharacterActionRepository.action(role.onNightAction!, this);
+        action!.onNightAction();
+      }
+    }
+  }
+
+  void onDeathAction() {
+    if (action != null) {
+      action!.onDeathAction();
+    } else {
+      if (role.onDeathAction != null) {
+        action = CharacterActionRepository.action(role.onDeathAction!, this);
+        action!.onDeathAction();
+      }
+    }
+  }
 
   void setNotes(String notes) {
     this.notes = notes;
@@ -28,6 +51,7 @@ class Character {
   }
 
   void kill() {
+    onDeathAction();
     alive = false;
   }
 
@@ -57,6 +81,7 @@ class Character {
       case 'survive':
         return Game.instance.isGameOver() && alive;
       default:
+        // ignore: avoid_print
         print(
             "Error: Unknown win condition: ${role.winCondition.winCondition}");
         return false;

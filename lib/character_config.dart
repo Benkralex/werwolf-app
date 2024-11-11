@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:werwolfapp/game/action.dart';
 import 'package:werwolfapp/game/game.dart';
 import 'package:werwolfapp/game/role.dart';
 import 'package:werwolfapp/game/role_repository.dart';
@@ -148,6 +149,7 @@ class CharacterConfig extends StatelessWidget {
               reverseTransitionDuration: Duration.zero,
             ),
           );
+          GameAction.nextUpdatesDay = false;
           Game.instance.next();
         },
         child: const Icon(Icons.arrow_forward),

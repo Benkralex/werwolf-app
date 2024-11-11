@@ -5,6 +5,8 @@ import 'package:werwolfapp/game/role.dart';
 class Game {
   static final Game instance = Game();
 
+  List<Character> killAtEndOfDay = [];
+  List<Character> killAtStartOfDay = [];
   int playerCount = 0;
   List<Character> characters = [];
   bool night = true;
@@ -22,6 +24,9 @@ class Game {
   void setNight() {
     gameOver = gameOver || hasWon();
     if (isGameOver()) return;
+    for (final c in killAtEndOfDay) {
+      c.kill();
+    }
     night = true;
     activeRole = null;
     next();
@@ -30,6 +35,9 @@ class Game {
   void setDay() {
     gameOver = gameOver || hasWon();
     if (isGameOver()) return;
+    for (final c in killAtStartOfDay) {
+      c.kill();
+    }
     night = false;
     activeRole = null;
   }
@@ -92,6 +100,17 @@ class Game {
     if (isGameOver()) return;
     GameAction.next();
     activeRole = GameAction.activeRole;
+    final activeCharacter = GameAction.activeCharacter;
+    if (activeCharacter != null) {
+      activeCharacter.onNightAction();
+    } else {
+      characters
+          .where(
+            (c) => (c.role == activeRole) && c.role.wakeUpTogether,
+          )
+          .first
+          .onNightAction();
+    }
   }
 
   void previous() {
@@ -102,6 +121,7 @@ class Game {
 
   bool isGameOver() {
     gameOver = (getAliveRoles().length <= 1);
+    // ignore: avoid_print
     if (gameOver) print("Game Over");
     return gameOver;
   }

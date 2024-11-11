@@ -31,4 +31,13 @@ class RoleRepository {
     }
     return roles[0];
   }
+
+  static Role getRoleByName(String name) {
+    for (final r in roles) {
+      if (r.name == name) {
+        return r;
+      }
+    }
+    return roles[0];
+  }
 }

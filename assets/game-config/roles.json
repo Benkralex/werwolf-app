@@ -70,6 +70,9 @@
     "priority": 1,
     "win-condition": 0,
     "onNightAction": "priest",
+    "properties": {
+      "protected-players": []
+    },
     "max-count": 1
   },
   {
@@ -79,6 +82,9 @@
     "priority": 1,
     "win-condition": 0,
     "onNightAction": "bodyguard",
+    "properties": {
+      "protected-player": null
+    },
     "max-count": 1
   },
   {
@@ -114,9 +120,10 @@
     "win-condition": 0,
     "properties": {
       "only-first-night": true,
-      "nights-in-between": 0
+      "nights-in-between": 0,
+      "lovers": []
     },
-    "onNightAction": "armor",
+    "onNightAction": "amor",
     "max-count": 1
   },
   {

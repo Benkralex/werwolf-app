@@ -9,8 +9,8 @@ class Role {
   bool wakeUpTogether;
   Map<String, dynamic> properties = {};
   WinCondition winCondition;
-  Map<String, dynamic>? onDeathAction;
-  Map<String, dynamic>? onNightAction;
+  String? onDeathAction;
+  String? onNightAction;
   int maxCount = 40;
 
   Role(
