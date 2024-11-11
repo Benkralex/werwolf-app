@@ -1,0 +1,4 @@
+#Mon Nov 11 19:37:31 CET 2024
+base.0=D\:\\Dev\\Projekte\\flutter\\Werwolf-App\\src\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

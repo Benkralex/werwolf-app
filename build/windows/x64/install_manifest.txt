@@ -1,0 +1,15 @@
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/icudtl.dat
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/flutter_windows.dll
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/assets/game-config/roles.json
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/assets/game-config/win-conditions.json
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/assets/icons/werwolf-icon.png
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/shaders/ink_sparkle.frag
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/AssetManifest.json
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/AssetManifest.bin
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/AssetManifest.bin.json
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/FontManifest.json
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/NOTICES
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/flutter_assets/NOTICES.Z
+D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/runner/Release/data/app.so

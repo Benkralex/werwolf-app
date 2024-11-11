@@ -1,0 +1,35 @@
+[
+    {
+        "id": 0,
+        "name": "Werwolf",
+        "desc": "Wacht in jeder Nacht zusammen mit den anderen Werwölfen auf und wählt 1 Opfer aus, das ihr töten wollt",
+        "priority": 2,
+        "properties": {}
+    },
+    {
+        "id": 1,
+        "name": "Seher",
+        "desc": "Wählt jede Nacht einen Spieler, bei dem er die Rolle erfahren möchte",
+        "priority": 1,
+        "properties": {
+            "can-see-full-role": false
+        }
+    },
+    {
+        "id": 2,
+        "name": "Dorfbewohner",
+        "desc": "Sucht die Werwölfe und probiert diese zu lynchen",
+        "priority": 0,
+        "properties": {}
+    },
+    {
+        "id": 3,
+        "name": "Hexe",
+        "desc": "Kann jede Nacht entscheiden, ob sie das/die Opfer rettet oder noch jemanden umbringt",
+        "priority": 3,
+        "properties": {
+            "count-healing-potions": 2,
+            "count-death-potions": 2
+        }
+    }
+]

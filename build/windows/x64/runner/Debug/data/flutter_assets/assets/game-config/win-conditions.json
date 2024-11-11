@@ -1,0 +1,51 @@
+[
+  {
+    "id": 0,
+    "name": "Dorfbewohner",
+    "win-condition": "kill-all-enemies",
+    "win-condition-string": "Gewinnen, wenn alle anderen Gruppen ausgelöscht sind",
+    "type": "group"
+  },
+  {
+    "id": 1,
+    "name": "Werwölfe",
+    "win-condition": "be-half-of-all-players",
+    "win-condition-string": "Gewinnen, wenn sie mindestens die Hälfte aller Spieler sind",
+    "type": "group"
+  },
+  {
+    "id": 2,
+    "name": "Gerber",
+    "win-condition": "get-killed",
+    "win-condition-string": "Gewinnen, wenn sie gelyncht werden",
+    "type": "individual"
+  },
+  {
+    "id": 3,
+    "name": "Einsamer Wolf",
+    "win-condition": "be-half-of-all-players",
+    "win-condition-string": "Gewinnen, wenn sie mindestens die Hälfte aller Spieler sind",
+    "type": "individual"
+  },
+  {
+    "id": 4,
+    "name": "Überlebender",
+    "win-condition": "survive",
+    "win-condition-string": "Überleben",
+    "type": "group"
+  },
+  {
+    "id": 5,
+    "name": "Vampir",
+    "win-condition": "be-half-of-all-players",
+    "win-condition-string": "Gewinnen, wenn sie mindestens die Hälfte aller Spieler sind",
+    "type": "group"
+  },
+  {
+    "id": 6,
+    "name": "Kultführer",
+    "win-condition": "all-players-in-cult",
+    "win-condition-string": "Gewinnen, wenn alle Spieler im Kult sind",
+    "type": "group"
+  }
+]

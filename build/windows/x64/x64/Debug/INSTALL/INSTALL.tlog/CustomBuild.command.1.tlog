@@ -1,0 +1,10 @@
+^D:\DEV\PROJEKTE\FLUTTER\WERWOLF-APP\SRC\BUILD\WINDOWS\X64\CMAKEFILES\B84F6253357241A3C67EAD0FBE1D3380\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="D:\Dev\Projekte\flutter\Werwolf-App\src\android\app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    agpVersion="8.1.0"
+    buildFolder="D:\Dev\Projekte\flutter\Werwolf-App\src\build\app"
+    bootClassPath="C:\Users\Benkralex\AppData\Local\Android\sdk\platforms\android-34\android.jar;C:\Users\Benkralex\AppData\Local\Android\sdk\build-tools\33.0.1\core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

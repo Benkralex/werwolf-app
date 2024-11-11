@@ -1,0 +1,28 @@
+^D:\DEV\PROJEKTE\FLUTTER\WERWOLF-APP\SRC\BUILD\WINDOWS\X64\CMAKEFILES\493DE739FB01B71DEADBFC6A6CB24211\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\ProgramData\dart\flutter PROJECT_DIR=D:\Dev\Projekte\flutter\Werwolf-App\src FLUTTER_ROOT=C:\ProgramData\dart\flutter FLUTTER_EPHEMERAL_DIR=D:\Dev\Projekte\flutter\Werwolf-App\src\windows\flutter\ephemeral PROJECT_DIR=D:\Dev\Projekte\flutter\Werwolf-App\src FLUTTER_TARGET=lib\main.dart DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=true PACKAGE_CONFIG=D:\Dev\Projekte\flutter\Werwolf-App\src\.dart_tool\package_config.json C:/ProgramData/dart/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\DEV\PROJEKTE\FLUTTER\WERWOLF-APP\SRC\BUILD\WINDOWS\X64\CMAKEFILES\3DB163C6E333B69DDC3B620855A9E754\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\DEV\PROJEKTE\FLUTTER\WERWOLF-APP\SRC\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Dev/Projekte/flutter/Werwolf-App/src/windows -BD:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64 --check-stamp-file D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/flutter/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

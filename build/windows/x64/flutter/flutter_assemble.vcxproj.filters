@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Dev\Projekte\flutter\Werwolf-App\src\build\windows\x64\CMakeFiles\493de739fb01b71deadbfc6a6cb24211\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Dev\Projekte\flutter\Werwolf-App\src\build\windows\x64\CMakeFiles\3db163c6e333b69ddc3b620855a9e754\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Dev\Projekte\flutter\Werwolf-App\src\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Dev\Projekte\flutter\Werwolf-App\src\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{427FE263-EF50-3E5D-8840-AA089D2F331D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

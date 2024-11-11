@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.bruno.system_theme-merged_res-25:/animator/fragment_open_enter.xml",
+        "source": "com.bruno.system_theme-fragment-1.7.1-14:/animator/fragment_open_enter.xml"
+    },
+    {
+        "merged": "com.bruno.system_theme-merged_res-25:/animator/fragment_open_exit.xml",
+        "source": "com.bruno.system_theme-fragment-1.7.1-14:/animator/fragment_open_exit.xml"
+    },
+    {
+        "merged": "com.bruno.system_theme-merged_res-25:/animator/fragment_close_exit.xml",
+        "source": "com.bruno.system_theme-fragment-1.7.1-14:/animator/fragment_close_exit.xml"
+    },
+    {
+        "merged": "com.bruno.system_theme-merged_res-25:/animator/fragment_fade_enter.xml",
+        "source": "com.bruno.system_theme-fragment-1.7.1-14:/animator/fragment_fade_enter.xml"
+    },
+    {
+        "merged": "com.bruno.system_theme-merged_res-25:/animator/fragment_fade_exit.xml",
+        "source": "com.bruno.system_theme-fragment-1.7.1-14:/animator/fragment_fade_exit.xml"
+    },
+    {
+        "merged": "com.bruno.system_theme-merged_res-25:/animator/fragment_close_enter.xml",
+        "source": "com.bruno.system_theme-fragment-1.7.1-14:/animator/fragment_close_enter.xml"
+    }
+]

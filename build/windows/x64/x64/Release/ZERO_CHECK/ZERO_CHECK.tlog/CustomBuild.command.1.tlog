@@ -1,0 +1,10 @@
+^D:\DEV\PROJEKTE\FLUTTER\WERWOLF-APP\SRC\BUILD\WINDOWS\X64\CMAKEFILES\B84F6253357241A3C67EAD0FBE1D3380\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/Dev/Projekte/flutter/Werwolf-App/src/windows -BD:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Dev/Projekte/flutter/Werwolf-App/src/build/windows/x64/werwolfapp.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
