@@ -70,6 +70,9 @@
     "priority": 1,
     "win-condition": 0,
     "onNightAction": "priest",
+    "properties": {
+      "protected-players": []
+    },
     "max-count": 1
   },
   {
@@ -79,6 +82,9 @@
     "priority": 1,
     "win-condition": 0,
     "onNightAction": "bodyguard",
+    "properties": {
+      "protected-player": null
+    },
     "max-count": 1
   },
   {
@@ -114,9 +120,10 @@
     "win-condition": 0,
     "properties": {
       "only-first-night": true,
-      "nights-in-between": 0
+      "nights-in-between": 0,
+      "lovers": []
     },
-    "onNightAction": "armor",
+    "onNightAction": "amor",
     "max-count": 1
   },
   {
@@ -142,7 +149,7 @@
   {
     "id": 15,
     "name": "Hexe",
-    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jewails einmal pro Spiel.",
+    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jeweils einmal pro Spiel.",
     "priority": 3,
     "win-condition": 0,
     "properties": {
@@ -155,7 +162,7 @@
   {
     "id": 16,
     "name": "Magier",
-    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jewails einmal pro Spiel.",
+    "desc": "Du tötest oder heilst während der Nacht 1 Spieler, jeweils einmal pro Spiel.",
     "priority": 3,
     "win-condition": 0,
     "properties": {
