@@ -1,16 +1,13 @@
-# werwolfapp
+# Werwolf App
 
-A new Flutter project.
+[![Release](https://img.shields.io/github/v/release/Benkralex/werwolf-app?include_prereleases)](https://github.com/Benkralex/werwolf-app/releases) [![APK Downloads](https://img.shields.io/github/downloads/Benkralex/werwolf-app/total.svg?label=APK%20Downloads)](https://github.com/Benkralex/werwolf-app/releases)
 
-## Getting Started
+**Werwolf App** is an interactive app designed to help moderators manage the popular party game _Werwolf_.
 
-This project is a starting point for a Flutter application.
+## Bug Reports & Feature Requests
 
-A few resources to get you started if this is your first Flutter project:
+If you’d like to report a bug or request a new feature, please check if it’s already listed in the [Issues](https://github.com/Benkralex/werwolf-app/issues) section. If not, feel free to open a new issue.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Contributing
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Interested in contributing? Your help is appreciated! Please ensure that your code is well-structured and easy to read, as I am the sole maintainer and manage all contributions. Thank you for your patience.
