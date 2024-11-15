@@ -30,14 +30,14 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /.idx/
-/.build/
-/android/
-/ios/
-/linux/
-/macos/
-/web/
-/windows/
-/test/
+.build/
+android/
+ios/
+linux/
+macos/
+web/
+windows/
+test/
 
 # Symbolication related
 app.*.symbols
