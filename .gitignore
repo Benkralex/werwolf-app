@@ -9,13 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-.build/
+build
 android/
 ios/
 linux/
@@ -23,6 +17,12 @@ macos/
 web/
 windows/
 test/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
 
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
