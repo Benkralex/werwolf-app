@@ -6,7 +6,7 @@ class HunterAction extends CharacterAction {
   @override
   void onDeathAction() {
     final characters = getAliveCharacters();
-    final target = selectCharacter(characters);
+    final target = selectCharacter(characters, "Töte");
     killCharacter(target, false, instant: true);
   }
 }

@@ -6,7 +6,7 @@ class WerewolfAction extends CharacterAction {
   @override
   void onNightAction() {
     final characters = getAliveCharacters();
-    final target = selectCharacter(characters);
+    final target = selectCharacter(characters, "Töten");
     killCharacter(target, false);
   }
 }

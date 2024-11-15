@@ -7,7 +7,7 @@ class PriestAction extends CharacterAction {
   @override
   void onNightAction() {
     final characters = getAliveCharacters();
-    final target = selectCharacter(characters);
+    final target = selectCharacter(characters, "Schütze");
     changeProperty(
       "protected-players",
       getProperty("protected-players").add(target.id),

@@ -7,9 +7,14 @@ class AmorAction extends CharacterAction {
   @override
   void onNightAction() {
     final characters = getAliveCharacters();
-    final target1 = selectCharacter(characters);
-    final target2 =
-        selectCharacter(characters.where((c) => c.id != target1.id).toList());
+    final target1 = selectCharacter(
+      characters,
+      "Partner 1",
+    );
+    final target2 = selectCharacter(
+      characters.where((c) => c.id != target1.id).toList(),
+      "Partner 2",
+    );
     changeProperty(
       "lovers",
       getProperty("lovers").append(

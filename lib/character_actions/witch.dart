@@ -14,7 +14,8 @@ class WitchAction extends CharacterAction {
       possibleActionTypes.add("kill");
     }
     if (possibleActionTypes.length == 2) {
-      actionType = selectOf(possibleActionTypes[0], possibleActionTypes[1]);
+      actionType = selectOf("Was möchtest du machen?", possibleActionTypes[0],
+          possibleActionTypes[1]);
     } else if (possibleActionTypes.length == 1) {
       actionType = possibleActionTypes[0];
     } else {
@@ -23,7 +24,7 @@ class WitchAction extends CharacterAction {
 
     if (actionType == "kill") {
       final characters = getAliveCharacters();
-      final target = selectCharacter(characters);
+      final target = selectCharacter(characters, "Töten");
       killCharacter(target, true);
       changeProperty(
         "count-death-potions",
@@ -32,7 +33,7 @@ class WitchAction extends CharacterAction {
     } else if (actionType == "heal") {
       final characters =
           getKillAtEndOfDayCharacters() + getKillAtStartOfDayCharacters();
-      final target = selectCharacter(characters);
+      final target = selectCharacter(characters, "Heilen");
       cancelKillCharacter(target);
       changeProperty(
         "count-healing-potions",

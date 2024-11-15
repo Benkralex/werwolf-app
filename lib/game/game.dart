@@ -14,6 +14,10 @@ class Game {
   List<Role> rolesByPriority = [];
   bool gameOver = false;
 
+  Function? showMessage;
+  Function? selectCharacter;
+  Function? selectOf;
+
   Game();
 
   void toggleNight() {

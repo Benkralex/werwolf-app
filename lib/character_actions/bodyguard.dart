@@ -7,7 +7,7 @@ class BodyguradAction extends CharacterAction {
   @override
   void onNightAction() {
     final characters = getAliveCharacters();
-    final target = selectCharacter(characters);
+    final target = selectCharacter(characters, "Geschützte");
     changeProperty(
       "protected-player",
       target.id,

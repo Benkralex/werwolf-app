@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/game.dart';
 
 class NightWidget extends StatefulWidget {
@@ -6,19 +7,34 @@ class NightWidget extends StatefulWidget {
   const NightWidget({super.key, required this.update});
 
   @override
-  State<NightWidget> createState() => _NightWidgetState();
+  State<NightWidget> createState() => NightWidgetState();
 }
 
-class _NightWidgetState extends State<NightWidget> {
+class NightWidgetState extends State<NightWidget> {
+  void showMessage(String title, String message) {
+    //Show popup-msg
+  }
+
+  Character selectCharacter(List<Character> characters, String title) {
+    //Show bottom Modal
+    return characters[0];
+  }
+
+  String selectOf(String title, String s1, String s2) {
+    //Show popup with two options
+    return s1;
+  }
+
   @override
   Widget build(BuildContext context) {
+    Game.instance.showMessage = showMessage;
+    Game.instance.selectCharacter = selectCharacter;
+    Game.instance.selectOf = selectOf;
     return Scaffold(
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // Your other widgets can go here
-          ],
+          children: <Widget>[],
         ),
       ),
       bottomNavigationBar: Padding(

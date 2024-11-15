@@ -22,9 +22,8 @@ abstract class CharacterAction {
     return Game.instance.killAtStartOfDay;
   }
 
-  Character selectCharacter(List<Character> characters) {
-    // show options
-    return characters[0];
+  Character selectCharacter(List<Character> characters, String title) {
+    return Game.instance.selectCharacter!(characters, title);
   }
 
   void killCharacter(Character character, bool endOfDay,
@@ -44,9 +43,8 @@ abstract class CharacterAction {
     }
   }
 
-  String selectOf(String action1, String action2) {
-    // show options
-    return action1;
+  String selectOf(String title, String action1, String action2) {
+    return Game.instance.selectOf!(title, action1, action2);
   }
 
   void cancelKillCharacter(Character character) {
@@ -62,8 +60,8 @@ abstract class CharacterAction {
     return character.getProperty(property);
   }
 
-  void showMessage(String message) {
-    // show message
+  void showMessage(String title, String message) {
+    Game.instance.showMessage!(title, message);
   }
 
   void onNightAction() {}

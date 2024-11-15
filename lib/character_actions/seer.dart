@@ -6,7 +6,7 @@ class SeerAction extends CharacterAction {
   @override
   void onNightAction() {
     final characters = getAliveCharacters();
-    final target = selectCharacter(characters);
-    showMessage("You have selected ${target.role.name}");
+    final target = selectCharacter(characters, "Rolle sehen");
+    showMessage("", "You have selected ${target.role.name}");
   }
 }
