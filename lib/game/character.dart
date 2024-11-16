@@ -25,7 +25,7 @@ class Character {
       action!.onNightAction();
     } else {
       if (role.onNightAction != null) {
-        action = CharacterActionRepository.action(role.onNightAction!, this);
+        action = CharacterActionRepository.action(this);
         action!.onNightAction();
       }
     }
@@ -36,7 +36,7 @@ class Character {
       action!.onDeathAction();
     } else {
       if (role.onDeathAction != null) {
-        action = CharacterActionRepository.action(role.onDeathAction!, this);
+        action = CharacterActionRepository.action(this);
         action!.onDeathAction();
       }
     }

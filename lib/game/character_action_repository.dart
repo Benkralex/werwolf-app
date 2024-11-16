@@ -10,26 +10,57 @@ import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/character_action.dart';
 
 class CharacterActionRepository {
-  static CharacterAction action(String actionType, Character character) {
+  static final Map<Character, CharacterAction> actions = {};
+
+  static CharacterAction action(Character character) {
+    late final String actionType;
+    if (!(character.role.onNightAction == null ||
+        character.role.onNightAction == '')) {
+      actionType = character.role.onNightAction!;
+    } else if (!(character.role.onDeathAction == null ||
+        character.role.onDeathAction == '')) {
+      actionType = character.role.onDeathAction!;
+    } else {
+      throw Exception('No action defined for character ${character.role.name}');
+    }
+    if (actions.containsKey(character)) {
+      return actions[character]!;
+    }
     switch (actionType) {
       case 'amor':
-        return AmorAction(character);
+        actions[character] = AmorAction(character);
+        return actions[character]!;
       case 'bodyguard':
-        return BodyguradAction(character);
+        actions[character] = BodyguardAction(character);
+        return actions[character]!;
       case 'hunter':
-        return HunterAction(character);
+        actions[character] = HunterAction(character);
+        return actions[character]!;
       case 'priest':
-        return PriestAction(character);
+        actions[character] = PriestAction(character);
+        return actions[character]!;
       case 'seer':
-        return SeerAction(character);
+        actions[character] = SeerAction(character);
+        return actions[character]!;
       case 'vampire':
-        return VampireAction(character);
+        actions[character] = VampireAction(character);
+        return actions[character]!;
       case 'werewolf':
-        return WerewolfAction(character);
+        actions[character] = WerewolfAction(character);
+        return actions[character]!;
       case 'witch':
-        return WitchAction(character);
+        actions[character] = WitchAction(character);
+        return actions[character]!;
       default:
         throw Exception('Unknown action type: $actionType');
     }
+  }
+
+  static void onDeath(Character character) {
+    action(character).onDeathAction();
+  }
+
+  static void onNight(Character character) {
+    action(character).onNightAction();
   }
 }

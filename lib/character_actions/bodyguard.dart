@@ -1,8 +1,8 @@
 import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/character_action.dart';
 
-class BodyguradAction extends CharacterAction {
-  BodyguradAction(character) : super(character, 'bodyguard');
+class BodyguardAction extends CharacterAction {
+  BodyguardAction(character) : super(character, 'bodyguard');
 
   @override
   void onNightAction() {

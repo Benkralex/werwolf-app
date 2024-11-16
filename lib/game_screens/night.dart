@@ -12,17 +12,103 @@ class NightWidget extends StatefulWidget {
 
 class NightWidgetState extends State<NightWidget> {
   void showMessage(String title, String message) {
-    //Show popup-msg
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
-  Character selectCharacter(List<Character> characters, String title) {
-    //Show bottom Modal
-    return characters[0];
+  Future<Character> selectCharacter(
+      List<Character> characters, String title) async {
+    while (true) {
+      final selectedCharacter = await showModalBottomSheet<Character>(
+        context: context,
+        isDismissible: false,
+        enableDrag: false,
+        builder: (BuildContext context) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: double.infinity,
+                color: Colors.grey[200],
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: characters.map((character) {
+                      return ListTile(
+                        title: Text(character.role.name),
+                        subtitle: Text(character.playerName ?? ""),
+                        onTap: () {
+                          Navigator.pop(context, character);
+                        },
+                      );
+                    }).toList(),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      );
+
+      if (selectedCharacter != null) {
+        return selectedCharacter;
+      }
+    }
   }
 
   String selectOf(String title, String s1, String s2) {
-    //Show popup with two options
-    return s1;
+    String returnValue = "";
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                returnValue = s1;
+              },
+              child: Text(s1),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                returnValue = s2;
+              },
+              child: Text(s2),
+            ),
+          ],
+        );
+      },
+    );
+    return returnValue;
   }
 
   @override
