@@ -1,0 +1,21 @@
+{
+  "name": "Werwolf",
+  "title": "Werwolf Spiel",
+  "menu_play": "Spielen",
+  "menu_presets": "Vorlagen",
+  "menu_settings": "Einstellungen",
+  "characters_in_total": "Insgesamt: {}",
+  "no_roles": "Keine Rollen vorhanden",
+  "characters_min_max_count": "Anzahl an Charakteren muss zwischen 5 und 40 sein",
+  "characters_min_on_at_night_awake": "Es muss mindestens ein Charakter geben, der Nachts aufwacht",
+  "role": {
+    "one": "Rolle",
+    "many": "Rollen",
+    "other": "Rollen"
+  },
+  "character": {
+    "one": "Charakter",
+    "many": "Charaktere",
+    "other": "Charaktere"
+  }
+}

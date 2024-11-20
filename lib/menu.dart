@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:werwolfapp/main.dart';
 import 'package:werwolfapp/settings/settings.dart';
@@ -66,99 +67,29 @@ class _MainMenuState extends State<MainMenu> {
                 padding: EdgeInsetsDirectional.symmetric(vertical: 8),
               ),
               Text(
-                "Werwolf Spiel",
+                "title",
                 style: Theme.of(context).textTheme.headlineSmall,
-              ),
+              ).tr(),
             ],
           ),
         ),
-        const NavigationDrawerDestination(
+        NavigationDrawerDestination(
           icon: Icon(Icons.play_arrow_outlined),
           selectedIcon: Icon(Icons.play_arrow),
-          label: Text("Spielen"),
+          label: Text("menu_play").tr(),
         ),
-        const NavigationDrawerDestination(
+        NavigationDrawerDestination(
           icon: Icon(Icons.bookmark_outlined),
           selectedIcon: Icon(Icons.bookmark),
-          label: Text("Vorlagen"),
+          label: Text("menu_presets").tr(),
           enabled: false,
         ),
-        const NavigationDrawerDestination(
+        NavigationDrawerDestination(
           icon: Icon(Icons.settings_outlined),
           selectedIcon: Icon(Icons.settings),
-          label: Text("Einstellungen"),
+          label: Text("menu_settings").tr(),
         ),
       ],
     );
   }
 }
-
-
-
-/*
-Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-                color: primaryColor,
-            ),
-            child: const Text(
-              'Werwolf Spiel',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.play_arrow),
-            title: const Text('Spielen'),
-            onTap: () {
-              Navigator.pushReplacement(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation1, animation2) =>
-                      const WerwolfApp(),
-                  transitionDuration: Duration.zero,
-                  reverseTransitionDuration: Duration.zero,
-                ),
-              );
-            },
-          ),
-          Opacity(
-            opacity: 0.3,
-            child: ListTile(
-              leading: const Icon(Icons.bookmark),
-              title: const Text('Vorlagen'),
-              onTap: () {
-                //open SettingsScreen
-                /*Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsScreen(),
-                  ),
-                );*/
-              },
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.settings),
-            title: const Text('Einstellungen'),
-            onTap: () {
-              //open SettingsScreen
-              Navigator.pushReplacement(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (context, animation1, animation2) =>
-                      const SettingsScreen(),
-                  transitionDuration: Duration.zero,
-                  reverseTransitionDuration: Duration.zero,
-                ),
-              );
-            },
-          )
-        ],
-      ),
-    );*/

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:werwolfapp/character_config.dart';
 import 'package:werwolfapp/game/character.dart';
@@ -50,9 +51,9 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
                         }
                       }).toList()
                     : [
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.all(16.0),
-                          child: Text("Keine Rollen vorhanden"),
+                          child: Text("no_roles").tr(),
                         ),
                       ],
               ),
@@ -141,7 +142,7 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Charaktere'),
+        title: const Text('character').plural(2),
         actions: [
           IconButton(
             onPressed: _showRoleSelectionSheet,
@@ -156,7 +157,7 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
       body: Center(
         child: Column(
           children: [
-            Text("Insgesamt: $charactersCount"),
+            Text("characters_in_total").tr(args: [charactersCount.toString()]),
             Expanded(
               child: ListView(
                 padding: const EdgeInsets.all(16.0),
@@ -170,20 +171,20 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
         onPressed: () {
           if (characters.length < 5 || characters.length > 40) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
+              SnackBar(
                 content: Text(
-                  "Anzahl an Charakteren muss zwischen 5 und 40 sein",
-                ),
+                  "characters_min_max_count",
+                ).tr(),
               ),
             );
             return;
           }
           if (characters.every((c) => c.role.priority == 0)) {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
+              SnackBar(
                 content: Text(
-                  "Es muss mindestens ein Charakter geben, der Nachts aufwacht",
-                ),
+                  "characters_min_on_at_night_awake",
+                ).tr(),
               ),
             );
             return;
