@@ -74,6 +74,7 @@ class CharacterInputScreenState extends State<CharacterInputScreen> {
   Widget build(BuildContext context) {
     Map<String, int> characterCount = {};
 
+    characters.sort((a, b) => a.id.compareTo(b.id));
     characters.sort((a, b) => a.role.name.compareTo(b.role.name));
     characters.sort((a, b) => a.role.priority.compareTo(b.role.priority));
     for (var character in characters) {
