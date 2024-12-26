@@ -4,6 +4,10 @@
 
 **Werwolf App** is an interactive app designed to help moderators manage the popular party game _Werwolf_.
 
+## Download
+[<img src="readme_content/github-badge.png" alt="Get it on GitHub" height="80">](https://github.com/Benkralex/werwolf-app/releases)
+[<img src="readme_content/obtainium-badge.png" alt="Get it on Obtainium" height="80">](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/Benkralex/werwolf-app//)
+
 ## Bug Reports & Feature Requests
 
 If you’d like to report a bug or request a new feature, please check if it’s already listed in the [Issues](https://github.com/Benkralex/werwolf-app/issues) section. If not, feel free to open a new issue.
