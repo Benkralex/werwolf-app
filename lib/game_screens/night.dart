@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/game.dart';
@@ -23,7 +24,7 @@ class NightWidgetState extends State<NightWidget> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('OK'),
+              child: const Text('ok').tr(),
             ),
           ],
         );
@@ -135,7 +136,7 @@ class NightWidgetState extends State<NightWidget> {
                   widget.update();
                 })
               },
-              child: const Text('Zurück'),
+              child: const Text('back').tr(),
             ),
             const SizedBox(
               width: 20,
@@ -147,7 +148,7 @@ class NightWidgetState extends State<NightWidget> {
                   widget.update();
                 })
               },
-              child: const Text('Weiter'),
+              child: const Text('next').tr(),
             ),
           ],
         ),

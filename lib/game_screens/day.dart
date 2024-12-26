@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:werwolfapp/game/character.dart';
 import 'package:werwolfapp/game/game.dart';
@@ -71,7 +72,7 @@ class _DayWidgetState extends State<DayWidget> {
                 });
               }
             },
-            child: const Text('Spieler lynchen!'),
+            child: Text('${'lynch_player'.tr()}!'),
           ),
         ),
       ],

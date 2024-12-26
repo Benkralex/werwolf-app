@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:werwolfapp/game/game.dart';
 import 'package:werwolfapp/game_screens/day.dart';
@@ -21,7 +22,7 @@ class _GameOverviewScreenState extends State<GameOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Übersicht'),
+        title: const Text('overview').tr(),
         actions: [
           IconButton(
             onPressed: () {
@@ -60,13 +61,13 @@ class _GameOverviewScreenState extends State<GameOverviewScreen> {
             child: Column(
               children: [
                 Text(
-                  Game.instance.night ? 'Nacht' : 'Tag',
+                  Game.instance.night ? 'night'.plural(1) : 'day'.plural(1),
                   style: const TextStyle(fontSize: 30),
                 ),
                 Text(
                   Game.instance.night
                       ? Game.instance.activeRole!.name
-                      : 'Lasse das Dorf einen Spieler lynchen',
+                      : 'let_the_village_lynch_a_player'.tr(),
                 )
               ],
             ),

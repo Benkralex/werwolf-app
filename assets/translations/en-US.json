@@ -4,10 +4,45 @@
   "menu_play": "Play",
   "menu_presets": "Presets",
   "menu_settings": "Settings",
+  "overview": "Overview",
+
+  "ok": "OK",
+  "back": "Back",
+  "next": "Next",
+  "close": "Close",
+  "cancel": "Cancel",
+  "save": "Save",
+
   "characters_in_total": "Total: {}",
   "no_roles": "No roles available",
   "characters_min_max_count": "Number of characters must be between 5 and 40",
   "characters_min_on_at_night_awake": "There must be at least one character who wakes up at night",
+  "no_properties": "No properties available",
+  "character_properties": "Character Properties",
+  "lynch_player": "Lynch Player",
+  "let_the_village_lynch_a_player": "Let the village lynch a player",
+  "edit_player": "Edit Player",
+  "player_name": "Player Name",
+  "note": {
+    "one": "Note",
+    "many": "Notes",
+    "other": "Notes"
+  },
+  "day": {
+    "one": "Day",
+    "many": "Days",
+    "other": "Days"
+  },
+  "night": {
+    "one": "Night",
+    "many": "Nights",
+    "other": "Nights"
+  },
+  "property": {
+    "one": "Property",
+    "many": "Properties",
+    "other": "Properties"
+  },
   "role": {
     "one": "Role",
     "many": "Roles",
@@ -17,5 +52,10 @@
     "one": "Character",
     "many": "Characters",
     "other": "Characters"
+  },
+  "player": {
+    "one": "Player",
+    "many": "Players",
+    "other": "Players"
   }
 }

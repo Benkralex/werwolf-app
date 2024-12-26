@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:werwolfapp/game/character.dart';
@@ -75,7 +76,7 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Charakter Eigenschaften'),
+          title: const Text('character_properties').tr(),
           content: SingleChildScrollView(
             child: Column(
               children: propertiesWidgets,
@@ -84,7 +85,7 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Schließen'),
+              child: const Text('close').tr(),
             ),
           ],
         );
@@ -103,7 +104,7 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Spieler bearbeiten'),
+          title: const Text('edit_player').tr(),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -115,14 +116,14 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
                 maxLength: 10,
                 maxLengthEnforcement: MaxLengthEnforcement.enforced,
                 inputFormatters: [LengthLimitingTextInputFormatter(20)],
-                decoration: const InputDecoration(labelText: 'Spielername'),
+                decoration: InputDecoration(labelText: 'player_name'.tr()),
               ),
               TextField(
                 onChanged: (value) {
                   notes = value;
                 },
                 controller: notesController,
-                decoration: const InputDecoration(labelText: 'Notizen'),
+                decoration: InputDecoration(labelText: 'note'.plural(2)),
               ),
             ],
           ),
@@ -131,7 +132,7 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Abbrechen'),
+              child: const Text('cancel').tr(),
             ),
             TextButton(
               onPressed: () {
@@ -141,7 +142,7 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
                 });
                 Navigator.of(context).pop();
               },
-              child: const Text('Speichern'),
+              child: const Text('save').tr(),
             ),
           ],
         );
@@ -205,7 +206,7 @@ class _PlayerOverviewScreenState extends State<PlayerOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Spieler'),
+        title: const Text('player').plural(2),
         actions: [
           IconButton(
             onPressed: () {

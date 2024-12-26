@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:werwolfapp/game/action.dart';
@@ -12,7 +13,6 @@ Map<Role, Map<String, dynamic>> _characterProperties = {
 
 class CharacterConfig extends StatelessWidget {
   void propertiesDialog(int id, BuildContext context) {
-    // Hole die aktuellsten Eigenschaften jedes Mal, wenn der Dialog geöffnet wird
     final role = RoleRepository.getRole(id);
     final Map<String, dynamic> roleProperties =
         _characterProperties[role] ?? {};
@@ -40,7 +40,6 @@ class CharacterConfig extends StatelessWidget {
                   onChanged: (newValue) {
                     setState(() {
                       switchValue = newValue;
-                      // Aktualisiere die Eigenschaft in _characterProperties direkt
                       _characterProperties[role]![p] = newValue;
                       Game.instance.configAllCharacters(role, p, newValue);
                     });
@@ -78,14 +77,14 @@ class CharacterConfig extends StatelessWidget {
     });
 
     if (properties.isEmpty) {
-      properties.add(const Text('Keine Eigenschaften gefunden'));
+      properties.add(const Text('no_properties').tr());
     }
 
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Eigenschaften ${role.name}'),
+          title: Text('properties'.plural(2) + role.name),
           content: SingleChildScrollView(
             child: Column(
               children: properties,
@@ -94,7 +93,7 @@ class CharacterConfig extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Schließen'),
+              child: const Text('close').tr(),
             ),
           ],
         );
@@ -121,7 +120,7 @@ class CharacterConfig extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Charakter Eigenschaften'),
+        title: const Text('character_properties').tr(),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {

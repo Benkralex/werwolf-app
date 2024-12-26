@@ -4,10 +4,45 @@
   "menu_play": "Spielen",
   "menu_presets": "Vorlagen",
   "menu_settings": "Einstellungen",
+  "overview": "Übersicht",
+
+  "ok": "OK",
+  "back": "Zurück",
+  "next": "Weiter",
+  "close": "Schließen",
+  "cancel": "Abbrechen",
+  "save": "Speichern",
+
   "characters_in_total": "Insgesamt: {}",
   "no_roles": "Keine Rollen vorhanden",
   "characters_min_max_count": "Anzahl an Charakteren muss zwischen 5 und 40 sein",
   "characters_min_on_at_night_awake": "Es muss mindestens ein Charakter geben, der Nachts aufwacht",
+  "no_properties": "Keine Eingenschaften vorhanden",
+  "character_properties": "Charakter Eigenschaften",
+  "lynch_player": "Spieler lynchen",
+  "let_the_village_lynch_a_player": "Lasse das Dorf einen Spieler lynchen",
+  "edit_player": "Spieler bearbeiten",
+  "player_name": "Spielername",
+  "note": {
+    "one": "Notiz",
+    "many": "Notizen",
+    "other": "Notizen"
+  },
+  "day": {
+    "one": "Tag",
+    "many": "Tage",
+    "other": "Tage"
+  },
+  "night": {
+    "one": "Nacht",
+    "many": "Nächte",
+    "other": "Nächte"
+  },
+  "property": {
+    "one": "Eigenschaft",
+    "many": "Eigenschaften",
+    "other": "Eigenschaften"
+  },
   "role": {
     "one": "Rolle",
     "many": "Rollen",
@@ -17,5 +52,10 @@
     "one": "Charakter",
     "many": "Charaktere",
     "other": "Charaktere"
+  },
+  "player": {
+    "one": "Spieler",
+    "many": "Spieler",
+    "other": "Spieler"
   }
 }
