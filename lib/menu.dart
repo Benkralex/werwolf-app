@@ -70,6 +70,13 @@ class _MainMenuState extends State<MainMenu> {
                 "title",
                 style: Theme.of(context).textTheme.headlineSmall,
               ).tr(),
+              Text(
+                "V0.9.2-beta",
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 10,
+                ),
+              ),
             ],
           ),
         ),
@@ -88,6 +95,9 @@ class _MainMenuState extends State<MainMenu> {
           icon: Icon(Icons.settings_outlined),
           selectedIcon: Icon(Icons.settings),
           label: Text("menu_settings").tr(),
+        ),
+        Expanded(
+          child: Container(),
         ),
       ],
     );
