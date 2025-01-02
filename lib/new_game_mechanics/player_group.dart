@@ -1,4 +1,4 @@
-import 'package:werwolfapp/new_game_mechanics/Player.dart';
+import 'package:werwolfapp/new_game_mechanics/player.dart';
 
 class PlayerGroup {
   final int id;
