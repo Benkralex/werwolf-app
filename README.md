@@ -1,3 +1,5 @@
+# This is an old Repository, the new backend moved to https://github.com/Benkralex/Werewolf-Backend. The new UI is comming if the backend is finished, it will be linked in the backend repo.
+
 # Werwolf App
 
 [![Release](https://img.shields.io/github/v/release/Benkralex/werwolf-app?include_prereleases)](https://github.com/Benkralex/werwolf-app/releases) [![APK Downloads](https://img.shields.io/github/downloads/Benkralex/werwolf-app/total.svg?label=APK%20Downloads)](https://github.com/Benkralex/werwolf-app/releases)
