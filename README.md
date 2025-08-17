@@ -1,4 +1,4 @@
-# This is an old Repository, the new backend moved to https://github.com/Benkralex/Werewolf-Backend. The new UI is comming if the backend is finished, it will be linked in the backend repo.
+# This is an old Repository, the new app moved to [https://github.com/Benkralex/Werewolf-Backend](https://github.com/Benkralex/Werewolf-App).
 
 # Werwolf App
 
