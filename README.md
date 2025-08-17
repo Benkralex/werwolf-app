@@ -1,4 +1,4 @@
-# This is an old Repository, the new app moved to [https://github.com/Benkralex/Werewolf-Backend](https://github.com/Benkralex/Werewolf-App).
+# This is an old Repository, the new app moved to [Benkralex/Werewolf-App](https://github.com/Benkralex/Werewolf-App).
 
 # Werwolf App
 
